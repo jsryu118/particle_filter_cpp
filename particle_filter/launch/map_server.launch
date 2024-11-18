@@ -1,0 +1,8 @@
+<launch>
+    <!-- <arg name="map" default="$(find particle_filter)/maps/basement_fixed.map.yaml"/> -->
+    <arg name="map" default="$(find particle_filter)/maps/map_data.yaml"/>
+    <arg name="map_topic" default="/pf_map"/>
+    <node pkg="map_server" name="map_server" type="map_server" args="$(arg map)">
+        <remap from="/map" to="$(arg map_topic)"/>
+    </node>
+</launch>
